@@ -1,0 +1,16 @@
+.title-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.panel-body {
+    height: calc(100vh - 200px);
+}
+
+.navbar-nav {
+    float: none;
+}
+
+.panel-body ng-component {
+    opacity: 1;
+}
