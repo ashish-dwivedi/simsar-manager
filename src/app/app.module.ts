@@ -3,25 +3,29 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ExpenseComponent } from './expenses/expenses.component';
 import { ShoppingComponent } from './shopping/shopping.component';
+import { AddExpenseComponent } from './expenses/expense.add.component';
+import { ExpenseService } from "app/expenses/expense.service";
 // import { FallbackComponent } from './fallback/fallback.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ExpenseComponent,
-    ShoppingComponent
+    ShoppingComponent,
+    AddExpenseComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
       {path: 'home', component:HomeComponent},
       {path: 'expenses', component: ExpenseComponent},
@@ -30,7 +34,8 @@ import { ShoppingComponent } from './shopping/shopping.component';
       // {path: '**', component: FallbackComponent}
     ])
   ],
-  providers: [],
+  providers: [ExpenseService],
+  entryComponents: [AddExpenseComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

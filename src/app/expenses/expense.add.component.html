@@ -1,0 +1,54 @@
+<div class="modal-header">
+    <h2 class="modal-title bold text-center text-uppercase">{{modalData.mode==='add'? 'Add': 'Edit'}} Expense</h2>
+    <button type="button" class="close" aria-label="Close" (click)="_NgbActiveModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class= "row">
+        <div class= "col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class= "row modal-rows">
+                <div class= "col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label>ID: </label>
+                </div>
+                <div class= "col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class= "expense-id">{{modalData.data.id}}</div>
+                </div>
+                <div class= "col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label>Category: </label>
+                </div>
+                <div class= "col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <select class= "select-category" [(ngModel)]= "modalData.data.category">
+                        <option *ngFor= "let category of expenseCategories">{{category}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class= "row modal-rows">
+                <div class= "col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label>Description: </label>
+                </div>
+                <div class= "col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <input type= "text" [(ngModel)]= "modalData.data.description" placeholder= "Enter entry description"/>
+                </div>
+                <div class= "col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label>Date: </label>
+                </div>
+                <div class= "col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <input type= "text" [(ngModel)]= "modalData.data.date" />
+                    <!--<ngb-datepicker #dp [(ngModel)]="modalData.data.date"></ngb-datepicker>-->
+                </div>
+            </div>
+            <div class= "row modal-rows">
+                <div class= "col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label>Amount: </label>
+                </div>
+                <div class= "col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                     <input type= "text" [(ngModel)]= "modalData.data.amount" placeholder= "&#8377;" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="addExpense()">Add Entry</button>
+</div>

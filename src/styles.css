@@ -1,10 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    font-family: AdihausBold;
+    font-family: adhapsrg-webfont;
     background-color: #ddd;
+}
+
+.bold {
+    font-family: AdihausBold;
 }
 
 @font-face {
     font-family: AdihausBold;
     src: url('./font/adihaus-bold.otf')
 }
+
+@font-face {
+    font-family: 'adhapsrg-webfont';
+    src: url('./font/adhapsrg-webfont.ttf');
+}
+
+.vertical-middle {
+    vertical-align: middle;
+}
+
+.font-size-18 {
+    font-size: 18px;
+}
+
+.push-down-15 {
+    margin-bottom: 15px;
+}
+
+/*Custom Modal Classes Start*/
+.modal-backdrop.show {
+    opacity: 0.5;
+}
+
+.fade.show.modal {
+    opacity: 1;
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0, 50%);
+    transform: translate(0, 50%);
+}
+
+.modal-body {
+    padding: 20px;
+}
+/*Custom Modal Classes End*/

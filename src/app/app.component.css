@@ -5,6 +5,7 @@
 
 .panel-body {
     height: calc(100vh - 200px);
+    background-color: #f8f8f8;
 }
 
 .navbar-nav {

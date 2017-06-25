@@ -1,3 +1,27 @@
 <div>
-    Expenses
+    <button class= "btn btn-success" (click)= "addUpdateExpense('add')"  data-toggle="modal" data-target="#myModal">Add Entries</button>
+    <div class="table-responsive expense-table">
+        <table class= "table">
+            <thead>
+                <tr class= "text-uppercase bold">
+                    <th>Entry Number</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor= "let expense of expenseList">
+                    <td>{{expense.id}}</td>
+                    <td>{{expense.category}}</td>
+                    <td>{{expense.description}}</td>
+                    <td>{{expense.date}}</td>
+                    <td>{{expense.amount | currency:'INR':true}}</td>
+                    <td><button class= "btn btn-primary" (click)= "addUpdateExpense('edit', expense)">Edit Entry</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

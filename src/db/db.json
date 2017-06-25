@@ -1,0 +1,25 @@
+{
+  "expenses": [
+    {
+      "id": 2,
+      "category": "CSD",
+      "description": "Spent on CSD items",
+      "date": "15/06/2017",
+      "amount": "500"
+    },
+    {
+      "id": 3,
+      "category": "Vegetables",
+      "description": "Vegetables for the 2nd week",
+      "date": "18/06/2017",
+      "amount": "200"
+    },
+    {
+      "id": 4,
+      "category": "Bill Payment & Recharge",
+      "description": "Internet bill for June",
+      "date": "02/06/2017",
+      "amount": "650"
+    }
+  ]
+}
