@@ -1,10 +1,14 @@
 <div>
     <button class= "btn btn-success" (click)= "addUpdateExpense('add')"  data-toggle="modal" data-target="#myModal">Add Entries</button>
+    <div class= "float-right inline-block">
+        <button class= "btn btn-primary" (click)= "addUpdateExpense('edit')" [disabled]= "!selectedEntries.length || selectedEntries.length>1">Edit Entry(ies)</button>
+        <button class= "btn btn-danger" (click)= "addUpdateExpense('delete')" [disabled]= "!selectedEntries.length">Delete Entry(ies)</button>
+    </div>
     <div class="table-responsive expense-table">
         <table class= "table">
             <thead>
                 <tr class= "text-uppercase bold">
-                    <th>Entry Number</th>
+                    <!--<th>Entry Number</th>-->
                     <th>Category</th>
                     <th>Description</th>
                     <th>Date</th>
@@ -14,12 +18,12 @@
             </thead>
             <tbody>
                 <tr *ngFor= "let expense of expenseList">
-                    <td>{{expense.id}}</td>
+                    <!--<td>{{expense.id}}</td>-->
                     <td>{{expense.category}}</td>
                     <td>{{expense.description}}</td>
                     <td>{{expense.date}}</td>
                     <td>{{expense.amount | currency:'INR':true}}</td>
-                    <td><button class= "btn btn-primary" (click)= "addUpdateExpense('edit', expense)">Edit Entry</button></td>
+                    <td><i class="material-icons" (click)= "selectForUpdation(expense)">{{selectionStatus(expense).found ? 'done_all' : 'done'}}</i></td>
                 </tr>
             </tbody>
         </table>

@@ -18,6 +18,10 @@ body {
     src: url('./font/adhapsrg-webfont.ttf');
 }
 
+input {
+    max-width: 100%;
+}
+
 .vertical-middle {
     vertical-align: middle;
 }
@@ -30,6 +34,17 @@ body {
     margin-bottom: 15px;
 }
 
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.inline-block {
+    display: inline-block;
+}
 /*Custom Modal Classes Start*/
 .modal-backdrop.show {
     opacity: 0.5;

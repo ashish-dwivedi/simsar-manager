@@ -21,5 +21,24 @@
       "date": "02/06/2017",
       "amount": "650"
     }
+  ],
+  "notification": [
+    {
+      "title": "Recharge BigTV",
+      "lastPaid": "2017-07-01",
+      "frequency": 30,
+      "category": "Bill",
+      "id": 0.03597915845700084
+    },
+    {
+      "title": "Internet Bill",
+      "lastPaid": "2017-07-15",
+      "frequency": 30,
+      "category": "Bill",
+      "id": 0.172186872647613
+    },
+    {
+      "id": 0.9696159842051255
+    }
   ]
 }

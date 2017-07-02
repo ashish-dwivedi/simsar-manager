@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -11,7 +11,9 @@ import { ExpenseComponent } from './expenses/expenses.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { AddExpenseComponent } from './expenses/expense.add.component';
 import { ExpenseService } from "app/expenses/expense.service";
-// import { FallbackComponent } from './fallback/fallback.component';
+import { NotificationComponent } from './notification/notification.component';
+import { NotificationService } from "app/notification/notification.service";
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { ExpenseService } from "app/expenses/expense.service";
     HomeComponent,
     ExpenseComponent,
     ShoppingComponent,
-    AddExpenseComponent
+    AddExpenseComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -30,12 +33,18 @@ import { ExpenseService } from "app/expenses/expense.service";
       {path: 'home', component:HomeComponent},
       {path: 'expenses', component: ExpenseComponent},
       {path: 'shopping', component: ShoppingComponent},
+      {path: 'notification', component: NotificationComponent},
       {path: '', redirectTo: 'home', pathMatch:'full'}
-      // {path: '**', component: FallbackComponent}
     ])
   ],
-  providers: [ExpenseService],
+  providers: [ExpenseService, NotificationService],
   entryComponents: [AddExpenseComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule implements OnInit {
+  constructor(private _NotificationService: NotificationService) {}
+
+  ngOnInit() {
+    alert(this._NotificationService.getNotificationsList());
+  }
+}
