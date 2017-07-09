@@ -34,8 +34,7 @@
                     <label>Date: </label>
                 </div>
                 <div class= "col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <input type= "text" [(ngModel)]= "modalData.data.date" />
-                    <!--<ngb-datepicker #dp [(ngModel)]="modalData.data.date"></ngb-datepicker>-->
+                    <input type= "date" [(ngModel)]= "modalData.data.date" />
                 </div>
             </div>
             <div class= "row modal-rows">
@@ -43,7 +42,7 @@
                     <label>Amount: </label>
                 </div>
                 <div class= "col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                     <input type= "text" [(ngModel)]= "modalData.data.amount" placeholder= "&#8377;" />
+                     <input type= "number" [(ngModel)]= "modalData.data.amount" placeholder= "&#8377;" />
                 </div>
             </div>
         </div>

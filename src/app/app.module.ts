@@ -41,10 +41,4 @@ import { NotificationService } from "app/notification/notification.service";
   entryComponents: [AddExpenseComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule implements OnInit {
-  constructor(private _NotificationService: NotificationService) {}
-
-  ngOnInit() {
-    alert(this._NotificationService.getNotificationsList());
-  }
-}
+export class AppModule {}

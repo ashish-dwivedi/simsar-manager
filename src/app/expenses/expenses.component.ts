@@ -19,7 +19,7 @@ export class ExpenseComponent implements OnInit {
 
     addUpdateExpense(mode: string, entryToUpdate?: IExpense): void {
         let modalRef = this._NgbModal.open(AddExpenseComponent);
-        let data = mode==='add' ? {id:this.expenseList.length+1} : this.selectedEntries[0];
+        let data = mode==='add' ? {id:Math.random()} : this.selectedEntries[0];
         modalRef.componentInstance.modalData = {mode: mode, data: data};        
     }
 

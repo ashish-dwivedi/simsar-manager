@@ -2,43 +2,61 @@
   "expenses": [
     {
       "id": 2,
-      "category": "CSD",
+      "category": "Grocery",
       "description": "Spent on CSD items",
-      "date": "15/06/2017",
+      "date": "2017-06-15",
       "amount": "500"
     },
     {
       "id": 3,
       "category": "Vegetables",
       "description": "Vegetables for the 2nd week",
-      "date": "18/06/2017",
+      "date": "2017-06-18",
       "amount": "200"
     },
     {
       "id": 4,
       "category": "Bill Payment & Recharge",
       "description": "Internet bill for June",
-      "date": "02/06/2017",
+      "date": "2017-06-02",
       "amount": "650"
+    },
+    {
+      "id": 0.8634396024100526,
+      "category": "Grocery",
+      "date": "2017-07-05",
+      "description": "Test comment",
+      "amount": 120
+    },
+    {
+      "id": 0.07713295131777342,
+      "category": "Bill Payment & Recharge",
+      "description": "Net Payment",
+      "date": "2017-07-05",
+      "amount": 1600
+    },
+    {
+      "id": 0.010186822329828926,
+      "category": "Grocery",
+      "description": "Vegetables",
+      "date": "2017-07-05",
+      "amount": 400
     }
   ],
   "notification": [
     {
       "title": "Recharge BigTV",
-      "lastPaid": "2017-07-01",
-      "frequency": 30,
+      "lastPaid": "2017-06-01",
+      "frequency": 2,
       "category": "Bill",
       "id": 0.03597915845700084
     },
     {
       "title": "Internet Bill",
       "lastPaid": "2017-07-15",
-      "frequency": 30,
+      "frequency": 2,
       "category": "Bill",
       "id": 0.172186872647613
-    },
-    {
-      "id": 0.9696159842051255
     }
   ]
 }
