@@ -14,6 +14,8 @@ export class ExpenseComponent implements OnInit {
     expenseList: IExpense[];
     errorText: string = '';
     selectedEntries: IExpense[] = [];
+    dropDownOpen: boolean  = false;
+    sortFields: string[] = ['category', 'date', 'amount'];
 
     constructor(private _ExpenseService: ExpenseService, private _Router: Router, private _NgbModal: NgbModal) {}
 
@@ -42,6 +44,14 @@ export class ExpenseComponent implements OnInit {
             }
         }
         return returnValue;
+    }
+
+    sortEntries(field) {
+        let params = '?_sort=' + field + '&order=' + 'asc';
+        this._ExpenseService.getExpenses(params).subscribe(
+            expenses => this.expenseList = expenses,
+            error => this.errorText = error
+        )
     }
 
     ngOnInit() : void {

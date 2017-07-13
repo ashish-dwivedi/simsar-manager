@@ -45,6 +45,10 @@ input {
 .inline-block {
     display: inline-block;
 }
+
+.display-block {
+    display: block;
+}
 /*Custom Modal Classes Start*/
 .modal-backdrop.show {
     opacity: 0.5;
