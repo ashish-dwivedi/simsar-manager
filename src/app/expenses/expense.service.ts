@@ -13,8 +13,12 @@ export class ExpenseService {
 
     constructor(private _Http: Http) {}
 
-    getExpenses(): Observable<IExpense[]> {
-        return this._Http.get(this.expenseUrl).
+    getExpenses(params?): Observable<IExpense[]> {
+        let url:string = this.expenseUrl;
+        if(params) {
+                url = url + params;
+        }
+        return this._Http.get(url).
         map(
             (response: Response) =>  <IExpense[]> response.json()
         )
