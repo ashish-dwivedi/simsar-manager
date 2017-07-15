@@ -32,7 +32,7 @@
       "id": 0.07713295131777342,
       "category": "Bill Payment & Recharge",
       "description": "Net Payment",
-      "date": "2017-07-05",
+      "date": "2017-07-06",
       "amount": 1600
     },
     {
@@ -57,6 +57,22 @@
       "frequency": 2,
       "category": "Bill",
       "id": 0.172186872647613
+    }
+  ],
+  "shopping": [
+    {
+      "id": 1,
+      "title": "Shopping for Gkp",
+      "list" : [
+        "Clothes", "Jewellery"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Vegetables",
+      "list" : [
+        "V1", "V2"
+      ]
     }
   ]
 }

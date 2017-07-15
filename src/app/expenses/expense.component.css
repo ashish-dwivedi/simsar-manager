@@ -6,6 +6,22 @@
     border-radius: 10px;
 }
 
-.dropdown button {
+.dropdown-btn {
     width: 160px;
+    border-radius: 0px;
+}
+
+.toggle-sort-order {
+    border-radius: 0px;
+    height: 34px;
+    margin-left: -4px;
+}
+
+.desc {
+    transition: transform 0.3s ease-in; 
+    transform: rotate(180deg);
+}
+
+.expense-row:hover {
+    background-color: #d2d2d2; 
 }

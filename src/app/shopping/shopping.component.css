@@ -1,20 +1,92 @@
+.shopping-add-panel {
+    height: 240px;
+    width: 200px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: bottom;
+}
+
 .shopping-list-panel {
     height: 240px;
     width: 200px;
     display: inline-block;
-    position: absolute;
     cursor: pointer;
+    margin-left: 20px;
+}
+
+.shopping-add-panel:hover {
+    background-color: #d2d2d2;
+}
+
+.shopping-add-panel:hover .add-list-cont span,
+.shopping-add-panel:hover .add-list-cont .add {
+    color: #1e1e1e !important;
+}
+.add-list-cont {
+    text-transform: uppercase;
+    position: relative;
+    top: 30%;
+    height: 24px;
+    margin-top: -12px;
 }
 
 .add-list-text {
-    text-transform: uppercase;
-    position: relative;
-    top: 50%;
-    height: 24px;
-    margin-top: -12px;
+    color: #a5a5a5;
+}
+
+.add-list-cont i {
+    color: #a5a5a5;
 }
 
 .material-icons.add {
     vertical-align: bottom;
     font-weight: 600;
+}
+
+.shopping-circle {
+    height: 10px;
+    width: 10px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.shopping-line {
+    background-color: #f0f0f0;
+    width: 60px;
+    height: 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.first-line {
+    margin-top: 10px;
+}
+
+.shopping-list-panel input {
+    width: 100%;
+    text-align: center;
+    border: none;
+}
+
+.shopping-list-panel input:hover,
+.shopping-list-panel input:focus {
+    background-color: #f0f0f0;
+}
+
+.shopping-list-panel .title-input {
+    font-weight: bold;
+    width: 85%;
+}
+
+.shopping-list-panel .list-input {
+    text-transform: capitalize;
+}
+
+.list-input.first {
+    margin-top: 20px;
+}
+
+.delete {
+    font-size: 19px;
 }

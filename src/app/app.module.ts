@@ -7,12 +7,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { ExpenseService } from "app/expenses/expense.service";
+import { ShoppingService } from "app/shopping/shopping.service";
 import { ExpenseComponent } from './expenses/expenses.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { AddExpenseComponent } from './expenses/expense.add.component';
-import { ExpenseService } from "app/expenses/expense.service";
-import { NotificationComponent } from './notification/notification.component';
 import { NotificationService } from "app/notification/notification.service";
+import { NotificationComponent } from './notification/notification.component';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { NotificationService } from "app/notification/notification.service";
       {path: '', redirectTo: 'home', pathMatch:'full'}
     ])
   ],
-  providers: [ExpenseService, NotificationService],
+  providers: [ExpenseService, ShoppingService, NotificationService],
   entryComponents: [AddExpenseComponent],
   bootstrap: [AppComponent]
 })

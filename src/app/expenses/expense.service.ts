@@ -18,8 +18,8 @@ export class ExpenseService {
         if(params) {
                 url = url + params;
         }
-        return this._Http.get(url).
-        map(
+        return this._Http.get(url)
+        .map(
             (response: Response) =>  <IExpense[]> response.json()
         )
         .do(

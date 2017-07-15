@@ -1,16 +1,19 @@
 <div>
     <button class= "btn btn-success" (click)= "addUpdateExpense('add')"  data-toggle="modal" data-target="#myModal">Add Entries</button>
     <button class= "btn btn-primary" (click)= "addUpdateExpense('edit')" [disabled]= "!selectedEntries.length || selectedEntries.length>1">Edit Entry(ies)</button>
-        <button class= "btn btn-danger" (click)= "addUpdateExpense('delete')" [disabled]= "!selectedEntries.length">Delete Entry(ies)</button>
+    <button class= "btn btn-danger" (click)= "addUpdateExpense('delete')" [disabled]= "!selectedEntries.length">Delete Entry(ies)</button>
     <div class= "float-right inline-block">
         <div class="dropdown">
-            <button class="btn btn-default" type="button" (click)= "dropDownOpen=!dropDownOpen">
-                {{sortBy || 'Sort By...'}}
+            <button class="btn btn-default dropdown-btn" type="button" (click)= "dropDownOpen=!dropDownOpen">
+                {{(sortParams.sortBy | uppercase) || 'Sort By...'}}
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" [ngClass]= "{'display-block' : dropDownOpen}">
-                <li (click)= "sortEntries(sortItem)" *ngFor= "let sortItem of sortFields"><a href= "#">{{sortItem}}</a></li>
+                <li (click)= "sortEntries(sortItem)" *ngFor= "let sortItem of sortFields"><a class= "text-uppercase" href= "#">{{sortItem}}</a></li>
             </ul>
+            <button class="btn btn-default toggle-sort-order" type="button" [disabled]= "sortParams.sortBy===''" (click)= "toggleSortOrder()">
+                <i class="material-icons" [ngClass]= "{'desc' : sortParams.sortOrder === 'desc'}">arrow_drop_down_circle</i>
+            </button>
         </div>
     </div>
     <div class="table-responsive expense-table">
@@ -25,12 +28,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor= "let expense of expenseList">
+                <tr class= "cursor-pointer expense-row" *ngFor= "let expense of expenseList"  (click)= "selectForUpdation(expense)" [ngClass]= "{'nextMonth' : sortParams.sortBy==='date'}">
                     <td>{{expense.category}}</td>
                     <td>{{expense.description}}</td>
                     <td>{{expense.date}}</td>
                     <td>{{expense.amount | currency:'INR':true}}</td>
-                    <td><i class="material-icons" (click)= "selectForUpdation(expense)">{{selectionStatus(expense).found ? 'done_all' : 'done'}}</i></td>
+                    <td><i class="material-icons">{{selectionStatus(expense).found ? 'adjust' : 'blur_circular'}}</i></td>
                 </tr>
             </tbody>
         </table>

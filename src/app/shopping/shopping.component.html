@@ -1,9 +1,18 @@
+<h2 class= "text-center">Shopping Lists</h2>
 <div>
-    <h2 class= "text-center">Shopping Lists</h2>
-    <div class= "panel panel-default shopping-list-panel">
-        <div class= "add-list-text text-center">
+    <div class= "panel panel-default shopping-add-panel" (click)= "addNewList()">
+        <div class= "add-list-cont text-center">
             <i class="material-icons add">add</i>
-            <span class= "bold font-size-18">Add List</span>
+            <span class= "bold font-size-18 add-list-text">Add List</span>
+            <div [ngClass]= "{'first-line' : first}" *ngFor= "let row of staticRows; let first = first">
+                <span class= "shopping-circle"></span>
+                <span class= "shopping-line"></span>
+            </div>
         </div>
+    </div>
+    <div [id]= "listItem.id" class= "panel panel-default shopping-list-panel" *ngFor= "let listItem of shoppingList">
+        <input class= "title-input" [value]= "listItem.title">
+        <i class="material-icons vertical-middle delete">delete</i>
+        <input class= "list-input" *ngFor= "let item of listItem.list; let first= first" [ngClass]= "{'first': first}" [value]= "item">
     </div>
 </div>
