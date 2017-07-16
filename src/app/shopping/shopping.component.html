@@ -1,18 +1,35 @@
-<h2 class= "text-center">Shopping Lists</h2>
-<div>
-    <div class= "panel panel-default shopping-add-panel" (click)= "addNewList()">
-        <div class= "add-list-cont text-center">
-            <i class="material-icons add">add</i>
-            <span class= "bold font-size-18 add-list-text">Add List</span>
-            <div [ngClass]= "{'first-line' : first}" *ngFor= "let row of staticRows; let first = first">
-                <span class= "shopping-circle"></span>
-                <span class= "shopping-line"></span>
+<div class= "row">
+    <div class= "col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h2 class= "text-center">Shopping Lists</h2>
+    </div>
+</div>
+<div class= "row">
+    <div class= "col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class= "list-container">
+            <div class= "panel panel-default shopping-card add" (click)= "addNewList()">
+                <div class= "add-list-cont text-center">
+                    <i class="material-icons note_add">note_add</i>
+                    <span class= "bold font-size-18 add-list-text">Add List</span>
+                    <div [ngClass]= "{'first-line' : first}" *ngFor= "let row of staticRows; let first = first">
+                        <span class= "shopping-circle"></span>
+                        <span class= "shopping-line"></span>
+                    </div>
+                </div>
+            </div>
+            <div [id]= "listItem.id" class= "panel panel-default shopping-card {{firstList? 'first' : ''}}" *ngFor= "let listItem of shoppingList; let firstList = first; let index= index">
+                <div class= "list-header">
+                    <i class="material-icons">view_list</i>
+                    <input class= "title-input" [(ngModel)]= "listItem.title">
+                    <i class="material-icons vertical-middle delete" (click)= "removeList(listItem, index)">delete</i>
+                </div>
+                <div class= "item-list">
+                    <input placeholder= "Item description" class= "list-input" *ngFor= "let item of listItem.list; let first= first; let itemIndex = index" [ngClass]= "{'first': first}" [(ngModel)]= "listItem.list[itemIndex].name">
+                </div>
+                <div class= "list-footer">
+                    <i class="material-icons" (click)= "addNewItem(listItem)">add_circle</i>
+                    <i class="material-icons float-right" (click)= "updateList(listItem)">save</i>
+                </div>
             </div>
         </div>
-    </div>
-    <div [id]= "listItem.id" class= "panel panel-default shopping-list-panel" *ngFor= "let listItem of shoppingList">
-        <input class= "title-input" [value]= "listItem.title">
-        <i class="material-icons vertical-middle delete">delete</i>
-        <input class= "list-input" *ngFor= "let item of listItem.list; let first= first" [ngClass]= "{'first': first}" [value]= "item">
     </div>
 </div>

@@ -1,46 +1,32 @@
 {
   "expenses": [
     {
-      "id": 2,
+      "id": 1,
       "category": "Grocery",
-      "description": "Spent on CSD items",
-      "date": "2017-06-15",
-      "amount": "500"
+      "description": "Vegetables",
+      "date": "2017-05-05",
+      "amount": 1000
+    },
+    {
+      "id": 2,
+      "category": "Bill Payment & Recharge",
+      "description": "Net bill",
+      "date": "2017-08-05",
+      "amount": 700
     },
     {
       "id": 3,
-      "category": "Vegetables",
-      "description": "Vegetables for the 2nd week",
-      "date": "2017-06-18",
-      "amount": "200"
+      "category": "CSD",
+      "description": "Canteen stuff",
+      "date": "2017-07-05",
+      "amount": 4000
     },
     {
       "id": 4,
-      "category": "Bill Payment & Recharge",
-      "description": "Internet bill for June",
-      "date": "2017-06-02",
-      "amount": "650"
-    },
-    {
-      "id": 0.8634396024100526,
-      "category": "Grocery",
-      "date": "2017-07-05",
-      "description": "Test comment",
-      "amount": 120
-    },
-    {
-      "id": 0.07713295131777342,
-      "category": "Bill Payment & Recharge",
-      "description": "Net Payment",
-      "date": "2017-07-06",
-      "amount": 1600
-    },
-    {
-      "id": 0.010186822329828926,
-      "category": "Grocery",
-      "description": "Vegetables",
-      "date": "2017-07-05",
-      "amount": 400
+      "category": "Vegetables",
+      "description": "For june",
+      "date": "2017-06-05",
+      "amount": 800
     }
   ],
   "notification": [
@@ -61,18 +47,41 @@
   ],
   "shopping": [
     {
-      "id": 1,
-      "title": "Shopping for Gkp",
-      "list" : [
-        "Clothes", "Jewellery"
+      "id": 2,
+      "title": "Vegetables June",
+      "list": [
+        {
+          "name": "Potato"
+        },
+        {
+          "name": "Tomato"
+        },
+        {
+          "name": "Green Leafy Vegetable"
+        },
+        {
+          "name": "Corn"
+        },
+        {
+          "name": "Ocra"
+        },
+        {
+          "name": "Beetroot"
+        },
+        {
+          "name": "Brinjal"
+        }
       ]
     },
     {
-      "id": 2,
-      "title": "Vegetables",
-      "list" : [
-        "V1", "V2"
-      ]
+      "title": "New List",
+      "list": [
+        {
+          "name": "Mast item"
+        }
+      ],
+      "id": 0.7851723506435326,
+      "new": false
     }
   ]
 }

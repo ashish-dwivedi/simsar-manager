@@ -44,4 +44,16 @@ export class ExpenseService {
             .map((response: Response)=> <IExpense[]>response.json());
         }
     }
+
+    deleteEntry(id): Observable<string> {
+        let url = this.expenseUrl + '/' + id;
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this._Http.delete(url, {headers: headers}).map(
+            (response: Response) => response.json()
+        )
+        .do(
+            data => console.log(data)
+        )
+    }
 }

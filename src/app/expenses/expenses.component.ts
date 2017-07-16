@@ -26,6 +26,14 @@ export class ExpenseComponent implements OnInit {
         modalRef.componentInstance.modalData = {mode: mode, data: data};        
     }
 
+    deleteExpense() {
+        for(let i= 0; i<this.selectedEntries.length; i++) {
+            this._ExpenseService.deleteEntry(this.selectedEntries[i].id).subscribe(
+                data => location.reload()
+            );
+        }
+    }
+
     selectForUpdation(expense: IExpense, mode: string) {
         let returnValue: boolean = false;
         if(this.selectionStatus(expense).found) {

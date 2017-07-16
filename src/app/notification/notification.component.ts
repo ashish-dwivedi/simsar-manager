@@ -31,7 +31,7 @@ export class NotificationComponent {
         for(let i=0; i<this.notificationList.length; i++) {
             this.notificationList[i].lastPaid = new Date(this.notificationList[i].lastPaid);
             if(this.notificationList[i].lastPaid.getDate() + this.notificationList[i].frequency < today.getDate()) {
-                alert('This one is due');
+                alert('Hooray!! None are due');
             }
         }
     }

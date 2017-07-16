@@ -1,12 +1,9 @@
-.shopping-add-panel {
-    height: 240px;
-    width: 200px;
-    display: inline-block;
-    cursor: pointer;
-    vertical-align: bottom;
+.list-container {
+    margin-top: 20px;
+    padding: 10px;
 }
 
-.shopping-list-panel {
+.shopping-card {
     height: 240px;
     width: 200px;
     display: inline-block;
@@ -14,14 +11,29 @@
     margin-left: 20px;
 }
 
-.shopping-add-panel:hover {
+.shopping-card.first {
+    margin-left: 240px;
+}
+
+.shopping-card.add {
+    position: absolute;
+}
+
+.shopping-card.add:hover {
     background-color: #d2d2d2;
 }
 
-.shopping-add-panel:hover .add-list-cont span,
-.shopping-add-panel:hover .add-list-cont .add {
+.shopping-card:hover .add-list-cont span,
+.shopping-card:hover .add-list-cont .note_add {
     color: #1e1e1e !important;
 }
+
+.shopping-card:hover .add-list-cont .shopping-circle,
+.shopping-card:hover .add-list-cont .shopping-line {
+    background-color: #1e1e1e;
+    opacity: 0.6;
+}
+
 .add-list-cont {
     text-transform: uppercase;
     position: relative;
@@ -38,7 +50,8 @@
     color: #a5a5a5;
 }
 
-.material-icons.add {
+.material-icons.note_add {
+    font-size: 35px;
     vertical-align: bottom;
     font-weight: 600;
 }
@@ -53,7 +66,7 @@
 
 .shopping-line {
     background-color: #f0f0f0;
-    width: 60px;
+    width: 80px;
     height: 8px;
     border-radius: 10px;
     display: inline-block;
@@ -63,30 +76,53 @@
     margin-top: 10px;
 }
 
-.shopping-list-panel input {
+.shopping-card input {
     width: 100%;
     text-align: center;
     border: none;
 }
 
-.shopping-list-panel input:hover,
-.shopping-list-panel input:focus {
+.shopping-card input:hover,
+.shopping-card input:focus {
     background-color: #f0f0f0;
 }
 
-.shopping-list-panel .title-input {
+.shopping-card .title-input {
     font-weight: bold;
-    width: 85%;
-}
-
-.shopping-list-panel .list-input {
+    width: 74%;
     text-transform: capitalize;
 }
 
-.list-input.first {
-    margin-top: 20px;
+.shopping-card .list-input {
+    text-transform: capitalize;
+    width: 90%;
+    margin: 10px 5% 0 5%;
 }
+
+/*.shopping-card .list-input.first {
+    margin-top: 20px;
+}*/
 
 .delete {
     font-size: 19px;
+}
+
+.list-header {
+    color: #757575;
+    position: absolute;
+    margin-top: 0px;
+}
+
+.item-list {
+    overflow: hidden;
+    height: 80%;
+    margin-top: 20px;
+}
+
+.item-list:hover {
+    overflow: auto;
+}
+
+.shopping-card .list-footer {
+    color: #757575;
 }

@@ -1,9 +1,11 @@
-<div>
-    <button class= "btn btn-success" (click)= "addUpdateExpense('add')"  data-toggle="modal" data-target="#myModal">Add Entries</button>
-    <button class= "btn btn-primary" (click)= "addUpdateExpense('edit')" [disabled]= "!selectedEntries.length || selectedEntries.length>1">Edit Entry(ies)</button>
-    <button class= "btn btn-danger" (click)= "addUpdateExpense('delete')" [disabled]= "!selectedEntries.length">Delete Entry(ies)</button>
-    <div class= "float-right inline-block">
-        <div class="dropdown">
+<div class= "row">
+    <div class= "col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <button class= "btn btn-success" (click)= "addUpdateExpense('add')"  data-toggle="modal" data-target="#myModal">Add Entries</button>
+        <button class= "btn btn-primary" (click)= "addUpdateExpense('edit')" [disabled]= "!selectedEntries.length || selectedEntries.length>1">Edit Entry</button>
+        <button class= "btn btn-danger" (click)= "deleteExpense('delete')" [disabled]= "!selectedEntries.length">Delete Entry(ies)</button>
+    </div>
+    <div class= "col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="dropdown float-right">
             <button class="btn btn-default dropdown-btn" type="button" (click)= "dropDownOpen=!dropDownOpen">
                 {{(sortParams.sortBy | uppercase) || 'Sort By...'}}
                 <span class="caret"></span>
@@ -12,10 +14,12 @@
                 <li (click)= "sortEntries(sortItem)" *ngFor= "let sortItem of sortFields"><a class= "text-uppercase" href= "#">{{sortItem}}</a></li>
             </ul>
             <button class="btn btn-default toggle-sort-order" type="button" [disabled]= "sortParams.sortBy===''" (click)= "toggleSortOrder()">
-                <i class="material-icons" [ngClass]= "{'desc' : sortParams.sortOrder === 'desc'}">arrow_drop_down_circle</i>
+                <i class="material-icons" [ngClass]= "{'desc' : sortParams.sortOrder === 'desc'}">{{sortParams.sortOrder === 'desc' ? 'swap_vert' : 'swap_vertical_circle'}}</i>
             </button>
         </div>
     </div>
+</div>
+<div class= "row">
     <div class="table-responsive expense-table">
         <table class= "table">
             <thead>

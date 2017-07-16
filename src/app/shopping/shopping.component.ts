@@ -22,11 +22,27 @@ export class ShoppingComponent implements OnInit {
 
     addNewList() {
         let newId = Math.random();
-        let newList: any = { title: 'My new list', list: [], id: newId }
+        let newList: any = { title: 'New List', list: [{name: ''}], id: newId, new: true };
         this.shoppingList.push(newList);
     }
 
-    // saveNewList() {
+    addNewItem(listItem) {
+        listItem.list.push({name: ''});
+    }
 
-    // }
+    removeList(listToRemove, indexToRemove) {
+        this._ShoppingService.removeList(listToRemove.id).subscribe(
+            data => {console.log(data);this.shoppingList.splice(indexToRemove, 1);},
+            error => console.log(error)
+        );
+    }
+
+    updateList(listToUpdate) {
+        if(!listToUpdate.new) {
+            this._ShoppingService.updateList(listToUpdate).subscribe();
+        } else {
+            listToUpdate.new = false;
+            this._ShoppingService.persistNewList(listToUpdate).subscribe();
+        }
+    }
 }
