@@ -27,6 +27,13 @@
       "description": "For june",
       "date": "2017-06-05",
       "amount": 800
+    },
+    {
+      "id": 0.010437502265943754,
+      "category": "Vegetables",
+      "description": "Test Expense",
+      "date": "2017-08-17",
+      "amount": 2000
     }
   ],
   "notification": [
@@ -72,16 +79,6 @@
           "name": "Brinjal"
         }
       ]
-    },
-    {
-      "title": "New List",
-      "list": [
-        {
-          "name": "Mast item"
-        }
-      ],
-      "id": 0.7851723506435326,
-      "new": false
     }
   ]
 }
