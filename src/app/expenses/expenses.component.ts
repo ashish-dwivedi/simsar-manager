@@ -15,6 +15,7 @@ export class ExpenseComponent implements OnInit {
     errorText: string = '';
     selectedEntries: IExpense[] = [];
     dropDownOpen: boolean  = false;
+    totalExpense: number = 0;
     sortParams: any = {sortOrder: 'asc', sortBy: ''};
     sortFields: string[] = ['category', 'date', 'amount'];
 
@@ -23,7 +24,7 @@ export class ExpenseComponent implements OnInit {
     addUpdateExpense(mode: string, entryToUpdate?: IExpense): void {
         let modalRef = this._NgbModal.open(AddExpenseComponent);
         let data = mode==='add' ? {id:Math.random()} : this.selectedEntries[0];
-        modalRef.componentInstance.modalData = {mode: mode, data: data};        
+        modalRef.componentInstance.modalData = {mode: mode, data: data};
     }
 
     deleteExpense() {
@@ -41,6 +42,7 @@ export class ExpenseComponent implements OnInit {
         } else {
             this.selectedEntries.push(expense);
         }
+        this.calculateExpenses(this.selectedEntries.length>0?true:false);
     }
 
     selectionStatus(expense: IExpense) {
@@ -73,9 +75,19 @@ export class ExpenseComponent implements OnInit {
         this.sortEntries(this.sortParams.sortBy, true);
     }
 
+    calculateExpenses(isSelected ? : boolean ) {
+        let i,
+        expenseArr: any[] = isSelected ? this.selectedEntries : this.expenseList;
+
+        this.totalExpense = 0;
+        for(i = 0; i<expenseArr.length; i++) {
+            this.totalExpense += expenseArr[i].amount;
+        }
+    }
+
     ngOnInit() : void {
         this._ExpenseService.getExpenses().subscribe(
-            expenses => this.expenseList = expenses,
+            expenses => {this.expenseList = expenses; this.calculateExpenses(false)},
             error => this.errorText = error
         )
     }

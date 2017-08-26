@@ -51,7 +51,7 @@
 }
 
 .material-icons.note_add {
-    font-size: 35px;
+    font-size: 25px;
     vertical-align: bottom;
     font-weight: 600;
 }
@@ -89,7 +89,7 @@
 
 .shopping-card .title-input {
     font-weight: bold;
-    width: 74%;
+    width: 88%;
     text-transform: capitalize;
 }
 
@@ -109,18 +109,13 @@
 
 .list-header {
     color: #757575;
-    position: absolute;
+    position: relative;
     margin-top: 0px;
 }
 
 .item-list {
-    overflow: hidden;
-    height: 80%;
-    margin-top: 20px;
-}
-
-.item-list:hover {
     overflow: auto;
+    height: 80%;
 }
 
 .shopping-card .list-footer {

@@ -25,3 +25,8 @@
 .expense-row:hover {
     background-color: #d2d2d2; 
 }
+
+.total-container {
+    float: right;
+    margin: 20px;
+}

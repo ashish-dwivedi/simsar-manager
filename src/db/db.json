@@ -1,39 +1,39 @@
 {
   "expenses": [
     {
-      "id": 1,
-      "category": "Grocery",
-      "description": "Vegetables",
-      "date": "2017-05-05",
-      "amount": 1000
-    },
-    {
-      "id": 2,
-      "category": "Bill Payment & Recharge",
-      "description": "Net bill",
+      "id": 0.569203308100825,
+      "category": "Travel",
+      "description": "Trip to Amsterdam",
       "date": "2017-08-05",
-      "amount": 700
+      "amount": 225
     },
     {
-      "id": 3,
-      "category": "CSD",
-      "description": "Canteen stuff",
-      "date": "2017-07-05",
-      "amount": 4000
+      "id": 0.1578812814861803,
+      "category": "D2D Purchases",
+      "description": "Lebara SIM",
+      "date": "2017-07-24",
+      "amount": 40
     },
     {
-      "id": 4,
-      "category": "Vegetables",
-      "description": "For june",
-      "date": "2017-06-05",
-      "amount": 800
+      "id": 0.2795259441874458,
+      "category": "D2D Purchases",
+      "description": "Monthly DB Bus Pass",
+      "date": "2017-07-31",
+      "amount": 90
     },
     {
-      "id": 0.010437502265943754,
-      "category": "Vegetables",
-      "description": "Test Expense",
-      "date": "2017-08-17",
-      "amount": 2000
+      "id": 0.7016363882803578,
+      "category": "Transfers",
+      "description": "Transferred 250 to ICICI",
+      "date": "2017-08-23",
+      "amount": 250
+    },
+    {
+      "id": 0.908499636840215,
+      "category": "Transfers",
+      "description": "200 Towards Rent and 100 towards Deposit",
+      "amount": 300,
+      "date": "2017-08-01"
     }
   ],
   "notification": [
@@ -54,31 +54,35 @@
   ],
   "shopping": [
     {
-      "id": 2,
-      "title": "Vegetables June",
+      "title": "From Germany",
       "list": [
         {
-          "name": "Potato"
+          "name": "Earphones"
         },
         {
-          "name": "Tomato"
+          "name": "Sweat Shirts"
         },
         {
-          "name": "Green Leafy Vegetable"
+          "name": "Adidas Socks"
         },
         {
-          "name": "Corn"
+          "name": "Tomato And Flower Seeds"
         },
         {
-          "name": "Ocra"
+          "name": "Souvenirs"
         },
         {
-          "name": "Beetroot"
+          "name": "Sweater for Papa"
         },
         {
-          "name": "Brinjal"
+          "name": "Handbags for mumma and Girls"
+        },
+        {
+          "name": "Watch/Wallets for Jij"
         }
-      ]
+      ],
+      "id": 0.24014036956881113,
+      "new": false
     }
   ]
 }

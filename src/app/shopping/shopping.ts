@@ -1,4 +1,4 @@
 export interface IShopping {
-    title:string;
+    title: string;
     items: string[];
 }

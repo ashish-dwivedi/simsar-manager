@@ -18,7 +18,7 @@
             </div>
             <div [id]= "listItem.id" class= "panel panel-default shopping-card {{firstList? 'first' : ''}}" *ngFor= "let listItem of shoppingList; let firstList = first; let index= index">
                 <div class= "list-header">
-                    <i class="material-icons">view_list</i>
+                    <!-- <i class="material-icons">view_list</i> -->
                     <input class= "title-input" [(ngModel)]= "listItem.title">
                     <i class="material-icons vertical-middle delete" (click)= "removeList(listItem, index)">delete</i>
                 </div>

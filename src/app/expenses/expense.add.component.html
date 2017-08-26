@@ -22,11 +22,11 @@
                         <option *ngFor= "let category of expenseCategories">{{category}}</option>
                     </select>
                 </div>
+                <div class= "col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label>Amount: </label>
+                </div>
             </div>
             <div class= "row modal-rows">
-                <div class= "col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <label>Description: </label>
-                </div>
                 <div class= "col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <input type= "text" [(ngModel)]= "modalData.data.description" placeholder= "Enter entry description"/>
                 </div>
@@ -39,7 +39,7 @@
             </div>
             <div class= "row modal-rows">
                 <div class= "col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                    <label>Amount: </label>
+                    <label>Description: </label>
                 </div>
                 <div class= "col-lg-4 col-md-4 col-sm-4 col-xs-4">
                      <input type= "number" [(ngModel)]= "modalData.data.amount" placeholder= "&#8377;" />

@@ -16,7 +16,7 @@ import { IExpense } from './expense';
 })
 export class AddExpenseComponent {
     @Input() modalData: any;
-    expenseCategories: string[] = ['Grocery', 'Vegetables', 'CSD', 'Bill Payment & Recharge'];
+    expenseCategories: string[] = ['Grocery & Misc', 'Travel', 'D2D Purchases', 'Bill Payment & Recharge', 'Transfers'];
 
     constructor(private _NgbActiveModal: NgbActiveModal, private _ExpenseService: ExpenseService) {}
 
