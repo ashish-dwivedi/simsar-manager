@@ -31,7 +31,7 @@
 .shopping-card:hover .add-list-cont .shopping-circle,
 .shopping-card:hover .add-list-cont .shopping-line {
     background-color: #1e1e1e;
-    opacity: 0.6;
+    /* opacity: 0.6; */
 }
 
 .add-list-cont {
@@ -59,13 +59,13 @@
 .shopping-circle {
     height: 10px;
     width: 10px;
-    background-color: #f0f0f0;
+    background-color: #a5a5a5;
     border-radius: 50%;
     display: inline-block;
 }
 
 .shopping-line {
-    background-color: #f0f0f0;
+    background-color: #a5a5a5;
     width: 80px;
     height: 8px;
     border-radius: 10px;
@@ -89,7 +89,6 @@
 
 .shopping-card .title-input {
     font-weight: bold;
-    width: 88%;
     text-transform: capitalize;
 }
 
@@ -120,4 +119,43 @@
 
 .shopping-card .list-footer {
     color: #757575;
+}
+
+.card-overlay {
+    position: absolute;
+    width: 200px;
+    height: 240px;
+    z-index: 2;
+    background-color: #1e1e1e;
+    opacity: 0.9;
+    color: #ffffff;
+    display: table;
+    cursor: default;
+}
+
+.card-overlay.edit {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s linear all;
+}
+
+.overlay-content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.overlay-content span {
+    display: block;
+}
+
+.overlay-content i {
+    border: 1px solid #ffffff;
+    display: inline-block;
+    margin:  5px;
+}
+
+.overlay-content i:hover {
+    background-color: #ffffff;
+    color: #000000;
 }

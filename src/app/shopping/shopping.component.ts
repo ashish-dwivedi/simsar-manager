@@ -10,12 +10,13 @@ import { ShoppingService } from './shopping.service';
 export class ShoppingComponent implements OnInit {
     staticRows: number[] = [1, 2, 3];
     shoppingList: IShopping[] = [];
+    clicked: boolean = false;
 
     constructor(private _ShoppingService: ShoppingService) {}
 
     ngOnInit() {
         this._ShoppingService.getShoppingList().subscribe(
-            data => this.shoppingList = data,
+            data => {this.shoppingList = data; this.openForEdit({}, true)},
             error => console.log('Could not get the shopping list!')
         );
     }
@@ -23,11 +24,13 @@ export class ShoppingComponent implements OnInit {
     addNewList() {
         let newId = Math.random();
         let newList: any = { title: 'New List', list: [{name: ''}], id: newId, new: true };
-        this.shoppingList.push(newList);
+        this.shoppingList.unshift(newList);
     }
 
     addNewItem(listItem) {
-        listItem.list.push({name: ''});
+        if(listItem.list[listItem.list.length-1]['name'] !== '') {
+            listItem.list.push({name: ''});
+        }
     }
 
     removeList(listToRemove, indexToRemove) {
@@ -43,6 +46,20 @@ export class ShoppingComponent implements OnInit {
         } else {
             listToUpdate.new = false;
             this._ShoppingService.persistNewList(listToUpdate).subscribe();
+        }
+        this.openForEdit(listToUpdate);
+    }
+
+    openForEdit(listItem: any, pageLoad? :boolean) {
+        let i: number;
+        if(!pageLoad) {
+            // Toggle individual lists status
+            listItem.clicked = listItem.clicked ? !listItem.clicked : true;
+        } else {
+            // Close all open lists
+            for(i=0; i<this.shoppingList.length; i++) {
+                this.shoppingList[i]['clicked'] = false;
+            }
         }
     }
 }

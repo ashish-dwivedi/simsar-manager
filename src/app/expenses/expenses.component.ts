@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IExpense } from './expense';
 import { ExpenseService } from './expense.service';
-import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DeleteConfirmation } from '../delete-confirmation/delete.confirmation.component';
 
 import { AddExpenseComponent } from './expense.add.component';
 
@@ -11,26 +11,47 @@ import { AddExpenseComponent } from './expense.add.component';
     styleUrls: ['./expense.component.css'],
 })
 export class ExpenseComponent implements OnInit {
-    expenseList: IExpense[];
+    expenseList = [];
     errorText: string = '';
     selectedEntries: IExpense[] = [];
     dropDownOpen: boolean  = false;
     totalExpense: number = 0;
-    sortParams: any = {sortOrder: 'asc', sortBy: ''};
+    sortParams: any = {sortOrder: 'desc', sortBy: 'date'};
     sortFields: string[] = ['category', 'date', 'amount'];
+    colors: string[] = ['rgba(66,214,146, 0.2)', 'rgba(66,133,244, 0.2)', 'rgba(246,145,178, 0.2)'];
 
-    constructor(private _ExpenseService: ExpenseService, private _Router: Router, private _NgbModal: NgbModal) {}
+    constructor(private _ExpenseService: ExpenseService, private _NgbModal: NgbModal) {}
 
     addUpdateExpense(mode: string, entryToUpdate?: IExpense): void {
-        let modalRef = this._NgbModal.open(AddExpenseComponent);
-        let data = mode==='add' ? {id:Math.random()} : this.selectedEntries[0];
+        let _this = this,
+            modalRef = _this._NgbModal.open(AddExpenseComponent),
+            data = mode==='add' ? {id:Math.random()} : _this.selectedEntries[0];
         modalRef.componentInstance.modalData = {mode: mode, data: data};
+        modalRef.result.then(
+            function(result) {
+                _this.getAllExpenses();
+            }, function(error) {}
+        );
+    }
+
+    getDeleteConfirmation() {
+        let _this = this,
+            modalRef = this._NgbModal.open(DeleteConfirmation);
+        modalRef.componentInstance.modalData = {
+            message: 'Are you sure you want to delete ' + this.selectedEntries.length +
+            (this.selectedEntries.length===1 ? ' item?' : ' items?'),
+        };
+        modalRef.result.then(
+            function(result) {
+                _this.deleteExpense();
+            }, function(error) {}
+        );
     }
 
     deleteExpense() {
         for(let i= 0; i<this.selectedEntries.length; i++) {
             this._ExpenseService.deleteEntry(this.selectedEntries[i].id).subscribe(
-                data => location.reload()
+                data => {this.selectedEntries=[];this.getAllExpenses();}
             );
         }
     }
@@ -60,10 +81,7 @@ export class ExpenseComponent implements OnInit {
     sortEntries(field, isSort?) {
         this.sortParams.sortBy = field;
         let params = '?_sort=' + field + '&_order=' + this.sortParams.sortOrder;
-        this._ExpenseService.getExpenses(params).subscribe(
-            expenses => this.expenseList = expenses,
-            error => this.errorText = error
-        )
+        this.getAllExpenses(params);
         if(!isSort) {
             this.dropDownOpen = !this.dropDownOpen;
         }
@@ -77,18 +95,39 @@ export class ExpenseComponent implements OnInit {
 
     calculateExpenses(isSelected ? : boolean ) {
         let i,
-        expenseArr: any[] = isSelected ? this.selectedEntries : this.expenseList;
-
+        expenseArr: any[] = isSelected ? this.selectedEntries : [].concat.apply([], this.expenseList);
         this.totalExpense = 0;
         for(i = 0; i<expenseArr.length; i++) {
             this.totalExpense += expenseArr[i].amount;
         }
     }
 
-    ngOnInit() : void {
-        this._ExpenseService.getExpenses().subscribe(
-            expenses => {this.expenseList = expenses; this.calculateExpenses(false)},
+    seggregateExpenses(expenses) {
+        let monthsArray:number[] = [],
+            newMonth:number;
+        for(let i = 0; i < expenses.length; i++) {
+            newMonth = new Date(expenses[i].date).getMonth()+1;
+            if(monthsArray.indexOf(newMonth) === -1) {
+                monthsArray.push(newMonth);
+                this.expenseList[monthsArray.length-1] = [];
+            }
+            this.expenseList[monthsArray.length-1].push(expenses[i]);
+        }
+    }
+
+    getAllExpenses(params? :any) {
+        if(!params) {
+            params = '?_sort=' + this.sortParams.sortBy + '&_order=' + this.sortParams.sortOrder;
+        }
+        this._ExpenseService.getExpenses(params).subscribe(
+            expenses => {
+                this.seggregateExpenses(expenses);
+                this.calculateExpenses(false)},
             error => this.errorText = error
         )
+    }
+
+    ngOnInit() : void {
+        this.getAllExpenses();
     }
 }

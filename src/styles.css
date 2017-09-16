@@ -41,6 +41,7 @@ body {
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 input {
@@ -78,7 +79,17 @@ input {
 .cursor-pointer {
     cursor: pointer;
 }
+
+.no-padding {
+    padding: 0px;
+}
+
 /*Custom Modal Classes Start*/
+.modal-header,
+.modal-body {
+    background-color: #f5f5f5;
+}
+
 .modal-backdrop.show {
     opacity: 0.5;
 }
@@ -90,9 +101,29 @@ input {
 .modal.fade .modal-dialog {
     -webkit-transform: translate(0, 50%);
     transform: translate(0, 50%);
+    transition: all 0.3s ease-in;
+}
+
+.modal-button-section {
+    text-align: center;
 }
 
 .modal-body {
     padding: 20px;
 }
 /*Custom Modal Classes End*/
+
+.flashing {
+    animation-name: flashing-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes flashing-animation {
+    0% {opacity: 1}
+    25% {opacity: 0.5}
+    50% {opacity: 0}
+    75% {opacity: 0.5}
+    100% {opacity: 1}
+}

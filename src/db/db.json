@@ -10,13 +10,13 @@
     {
       "id": 0.1578812814861803,
       "category": "D2D Purchases",
-      "description": "Lebara SIM",
+      "description": "Lebara SIM + Pack",
       "date": "2017-07-24",
-      "amount": 40
+      "amount": 50
     },
     {
       "id": 0.2795259441874458,
-      "category": "D2D Purchases",
+      "category": "Travel",
       "description": "Monthly DB Bus Pass",
       "date": "2017-07-31",
       "amount": 90
@@ -34,6 +34,111 @@
       "description": "200 Towards Rent and 100 towards Deposit",
       "amount": 300,
       "date": "2017-08-01"
+    },
+    {
+      "id": 0.15636228281836728,
+      "date": "2017-08-21",
+      "amount": 10,
+      "category": "D2D Purchases",
+      "description": "i-Card Recharge"
+    },
+    {
+      "id": 0.1978994177498119,
+      "category": "D2D Purchases",
+      "amount": 10,
+      "description": "Recharged Lebara again",
+      "date": "2017-08-24"
+    },
+    {
+      "id": 0.7949577279324191,
+      "category": "In-Claim",
+      "amount": 39,
+      "date": "2017-07-24",
+      "description": "Daily Bus Tickets"
+    },
+    {
+      "id": 0.6894925771883766,
+      "category": "In-Claim",
+      "amount": 24,
+      "date": "2017-08-02",
+      "description": "Cab: Erlangen to Herzo"
+    },
+    {
+      "id": 0.28432283685281967,
+      "category": "In-Claim",
+      "date": "2017-07-24",
+      "amount": 36,
+      "description": "Airport Taxi"
+    },
+    {
+      "id": 0.30821619824242585,
+      "category": "In-Claim",
+      "amount": 36,
+      "date": "2017-07-25",
+      "description": "Taxi: Erlangen to Herzo"
+    },
+    {
+      "id": 0.35831002503687315,
+      "amount": 10.7,
+      "category": "In-Claim",
+      "date": "2017-08-01",
+      "description": "Taxi: Arcaden to GH-15"
+    },
+    {
+      "id": 0.865871832953053,
+      "category": "In-Claim",
+      "amount": 400,
+      "date": "2017-08-01",
+      "description": "Roter Adler: Bill"
+    },
+    {
+      "id": 0.35474254885274514,
+      "category": "Travel",
+      "amount": 90,
+      "date": "2017-08-31",
+      "description": "Monthly Bus Pass"
+    },
+    {
+      "id": 0.02998667125983956,
+      "category": "D2D Purchases",
+      "amount": 40,
+      "date": "2017-08-30",
+      "description": "Recharged: Lebara KomplettXXL"
+    },
+    {
+      "id": 0.6499421638867231,
+      "category": "Travel",
+      "amount": 100,
+      "date": "2017-09-08",
+      "description": "Paris Tickets"
+    },
+    {
+      "id": 0.9361820416602564,
+      "category": "Transfers",
+      "amount": 1000,
+      "date": "2017-09-07",
+      "description": "Transferred to ICICI"
+    },
+    {
+      "id": 0.4587682476509385,
+      "category": "Transfers",
+      "amount": 490,
+      "date": "2017-09-08",
+      "description": "Transferred Rent and Settle Up"
+    },
+    {
+      "id": 0.23480397816472132,
+      "category": "Cash",
+      "amount": 50,
+      "date": "2017-09-02",
+      "description": "Cash withdrawal"
+    },
+    {
+      "id": 0.4522883643788371,
+      "category": "D2D Purchases",
+      "amount": 40,
+      "date": "2017-09-13",
+      "description": "Adidas Cloudfoam Shoes"
     }
   ],
   "notification": [
@@ -50,6 +155,13 @@
       "frequency": 2,
       "category": "Bill",
       "id": 0.172186872647613
+    },
+    {
+      "title": "TV Recharge",
+      "lastPaid": "2017-09-16",
+      "frequency": 30,
+      "category": "Bill",
+      "id": 0.3885960161608619
     }
   ],
   "shopping": [
@@ -75,14 +187,26 @@
           "name": "Sweater for Papa"
         },
         {
-          "name": "Handbags for mumma and Girls"
+          "name": "Handbags for Mumma and Girls"
         },
         {
-          "name": "Watch/Wallets for Jij"
+          "name": "Watch/Wallet for Jij"
         }
       ],
       "id": 0.24014036956881113,
-      "new": false
+      "new": false,
+      "clicked": true
+    },
+    {
+      "title": "Grocery I'm Never buying",
+      "list": [
+        {
+          "name": "Tea Powder"
+        }
+      ],
+      "id": 0.40071385608328436,
+      "new": false,
+      "clicked": true
     }
   ]
 }
