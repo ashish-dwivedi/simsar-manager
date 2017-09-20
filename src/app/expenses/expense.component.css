@@ -1,13 +1,15 @@
 .expense-table {
+    position: fixed;
     width: 80vw;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 65px;
     border: 1px solid #d2d2d2;
     border-radius: 10px;
 }
 
 .dropdown-btn {
     width: 100px;
+    height: 38px;
     border-radius: 0px;
 }
 
@@ -17,23 +19,28 @@
 
 .toggle-sort-order {
     border-radius: 0px;
-    height: 34px;
+    height: 38px;
     margin-left: -4px;
 }
 
+.toggle-sort-order i {
+    transition: transform 0.3s ease-in;
+}
+
 .desc {
-    transition: transform 0.3s ease-in; 
     transform: rotate(180deg);
 }
 
 .header {
     line-height: 35px;
-    /* position: fixed; */
+    position: fixed;
+    width: 80vw;
 }
 
 .content {
-    /* position: absolute; */
-    /* margin-top: 35px; */
+    margin-top: 35px;
+    overflow: auto;
+    height: 50vh;
 }
 
 .expense-row {
@@ -57,9 +64,24 @@
 
 .total-container {
     float: right;
-    margin: 20px;
+    height: 30px;
+    padding: 0 5px;
+    margin-top: 2.5px;
+    border-radius: 10px;
+    background-color: rgba(51, 122, 183, 0.4);
 }
 
 .last-section.last-row {
     border-bottom: 0;
+}
+
+.action-button-cont {
+    left: -100%;
+    position: relative;
+    display: inline-block;
+    transition: left 0.3s ease-in;
+}
+
+.action-button-cont.expand {
+    left: 0;
 }

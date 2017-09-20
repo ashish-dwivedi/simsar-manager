@@ -166,7 +166,7 @@
   ],
   "shopping": [
     {
-      "title": "From Germany",
+      "title": "FROM GERMANY",
       "list": [
         {
           "name": "Earphones"
@@ -191,6 +191,9 @@
         },
         {
           "name": "Watch/Wallet for Jij"
+        },
+        {
+          "name": ""
         }
       ],
       "id": 0.24014036956881113,

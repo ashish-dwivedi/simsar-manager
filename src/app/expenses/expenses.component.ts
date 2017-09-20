@@ -13,11 +13,12 @@ import { AddExpenseComponent } from './expense.add.component';
 export class ExpenseComponent implements OnInit {
     expenseList = [];
     errorText: string = '';
-    selectedEntries: IExpense[] = [];
-    dropDownOpen: boolean  = false;
     totalExpense: number = 0;
+    expandButtons: boolean = false;
+    dropDownOpen: boolean  = false;
+    selectedEntries: IExpense[] = [];
+    sortFields: string[] = ['date', 'category', 'amount'];
     sortParams: any = {sortOrder: 'desc', sortBy: 'date'};
-    sortFields: string[] = ['category', 'date', 'amount'];
     colors: string[] = ['rgba(66,214,146, 0.2)', 'rgba(66,133,244, 0.2)', 'rgba(246,145,178, 0.2)'];
 
     constructor(private _ExpenseService: ExpenseService, private _NgbModal: NgbModal) {}
@@ -61,6 +62,7 @@ export class ExpenseComponent implements OnInit {
         if(this.selectionStatus(expense).found) {
             this.selectedEntries.splice(this.selectionStatus(expense).index, 1);
         } else {
+            this.expandButtons = true;
             this.selectedEntries.push(expense);
         }
         this.calculateExpenses(this.selectedEntries.length>0?true:false);
@@ -103,15 +105,22 @@ export class ExpenseComponent implements OnInit {
     }
 
     seggregateExpenses(expenses) {
-        let monthsArray:number[] = [],
-            newMonth:number;
+        let fieldsArray:number[] = [],
+            newField: any;
+
         for(let i = 0; i < expenses.length; i++) {
-            newMonth = new Date(expenses[i].date).getMonth()+1;
-            if(monthsArray.indexOf(newMonth) === -1) {
-                monthsArray.push(newMonth);
-                this.expenseList[monthsArray.length-1] = [];
+            if(this.sortParams.sortBy === 'date') {
+                newField = new Date(expenses[i].date).getMonth()+1;
+            } else if(this.sortParams.sortBy === 'category') {
+                newField = expenses[i].category;
+            } else {
+                newField = expenses[i].amount;
             }
-            this.expenseList[monthsArray.length-1].push(expenses[i]);
+            if(fieldsArray.indexOf(newField) === -1) {
+                fieldsArray.push(newField);
+                this.expenseList[fieldsArray.length-1] = [];
+            }
+            this.expenseList[fieldsArray.length-1].push(expenses[i]);
         }
     }
 

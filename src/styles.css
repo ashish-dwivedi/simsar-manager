@@ -8,6 +8,10 @@ body {
     font-family: AdihausBold;
 }
 
+.theme-font-color {
+    color: #337ab7;
+}
+
 @font-face {
     font-family: AdihausBold;
     src: url('./font/adihaus-bold.otf')
@@ -44,6 +48,10 @@ body {
   cursor: pointer;
 }
 
+.action-button {
+    font-size: 30px;
+}
+
 input {
     max-width: 100%;
 }
@@ -66,6 +74,10 @@ input {
 
 .float-right {
     float: right;
+}
+
+.display-none {
+    display: none;
 }
 
 .inline-block {
@@ -126,4 +138,22 @@ input {
     50% {opacity: 0}
     75% {opacity: 0.5}
     100% {opacity: 1}
+}
+
+.page-action-row {
+    position: fixed;
+    width: 99%;
+    background-color: #f5f5f5;
+    opacity: 1;
+    z-index: 2;
+    padding-top: 15px;
+}
+
+.mandatory-asterisk {
+    color: crimson;
+    font-weight: bold;
+}
+
+.error {
+    color: crimson;
 }
