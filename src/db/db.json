@@ -136,9 +136,30 @@
     {
       "id": 0.4522883643788371,
       "category": "D2D Purchases",
-      "amount": 40,
+      "amount": 100,
       "date": "2017-09-13",
-      "description": "Adidas Cloudfoam Shoes"
+      "description": "Adidas Pure Boost"
+    },
+    {
+      "id": 0.9554709727175237,
+      "category": "D2D Purchases",
+      "amount": 15,
+      "date": "2017-09-23",
+      "description": "Sweatshirt"
+    },
+    {
+      "id": 0.04247775365181772,
+      "category": "Cash",
+      "amount": 50,
+      "date": "2017-09-23",
+      "description": "Withdrew Cash"
+    },
+    {
+      "id": 0.3912021065544822,
+      "category": "D2D Purchases",
+      "amount": 38,
+      "date": "2017-09-19",
+      "description": "Birthday Treat"
     }
   ],
   "notification": [

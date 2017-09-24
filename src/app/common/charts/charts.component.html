@@ -1,0 +1,20 @@
+<div class= "modal-header">
+    <h3 class= "text-uppercase modal-title bold inline-block">SPENDALYZER</h3>
+    <i class="material-icons float-right" (click)= "closeModal()">clear</i>
+</div>
+<div class= "modal-body">
+    <span class= "bold vertical-middle">PIE</span><i class="material-icons" (click)= "switchChartType('pie')">{{chartType === 'pie' ? 'radio_button_checked' : 'radio_button_unchecked'}}</i>
+    <span class= "bold vertical-middle">BAR</span><i class="material-icons" (click)= "switchChartType('bar')">{{chartType === 'bar' ? 'radio_button_checked' : 'radio_button_unchecked'}}</i>
+    <span class= "bold vertical-middle">LINE</span><i class="material-icons" (click)= "switchChartType('line')">{{chartType === 'line' ? 'radio_button_checked' : 'radio_button_unchecked'}}</i>
+    <div style="display: block">
+    <canvas baseChart
+            [data]="chartData"
+            [labels]="chartLabels"
+            [chartType]="chartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+    </div>
+</div>
+<div class= "modal-footer">
+    {{this.message}}
+</div>

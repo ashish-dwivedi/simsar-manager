@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
 import { IExpense } from './expense';
+import { Component, OnInit } from '@angular/core';
 import { ExpenseService } from './expense.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DeleteConfirmation } from '../delete-confirmation/delete.confirmation.component';
-
 import { AddExpenseComponent } from './expense.add.component';
+import { ChartsComponent } from '../common/charts/charts.component';
+import { DeleteConfirmation } from '../delete-confirmation/delete.confirmation.component';
 
 @Component({
     templateUrl: './expenses.component.html',
     styleUrls: ['./expense.component.css'],
 })
 export class ExpenseComponent implements OnInit {
-    expenseList = [];
+    expenseList: any = [];
     errorText: string = '';
     totalExpense: number = 0;
     expandButtons: boolean = false;
@@ -134,6 +134,35 @@ export class ExpenseComponent implements OnInit {
                 this.calculateExpenses(false)},
             error => this.errorText = error
         )
+    }
+
+    drawExpenseChart() {
+        let i, j, valueToPush,
+            labels:string[] = [],
+            data: number[] = [],
+            modalRef = this._NgbModal.open(ChartsComponent);
+        for(i = 0; i < this.expenseList.length; i++) {
+            if(labels.indexOf(this.expenseList[i][0][this.sortParams.sortBy]) === -1) {
+                if(this.sortParams.sortBy === 'date') {
+                    let monthNames = ["January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"
+                    ];
+                    valueToPush = monthNames[new Date(this.expenseList[i][0][this.sortParams.sortBy]).getMonth()];
+                } else {
+                    valueToPush = this.expenseList[i][0][this.sortParams.sortBy];
+                }
+                labels.push(valueToPush);
+                data[i] = 0;
+            }
+            for(j = 0; j < this.expenseList[i].length; j++) {
+                data[i] += this.expenseList[i][j].amount;
+            }
+        }
+        modalRef.componentInstance.modalData = {
+            'labels' : labels,
+            'data' : data,
+            'type' : 'pie'
+        };
     }
 
     ngOnInit() : void {
