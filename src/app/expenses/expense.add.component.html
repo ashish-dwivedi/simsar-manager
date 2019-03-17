@@ -1,0 +1,54 @@
+<div class="modal-header">
+    <h3 class="modal-title bold text-uppercase inline-block">{{modalData.mode==='add'? 'Add': 'Edit'}} Expense</h3>
+    <i class="material-icons float-right" (click)="_NgbActiveModal.dismiss()">clear</i>
+</div>
+<div class="modal-body">
+    <div class= "row">
+        <div class= "col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class= "row modal-rows">
+                <div class= "col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label class= "text-uppercase bold">Category<span class= "mandatory-asterisk">*</span></label>
+                </div>
+                <div class= "col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <select class= "select-category" [(ngModel)]= "modalData.data.category">
+                        <option *ngFor= "let category of expenseCategories">{{category}}</option>
+                    </select>
+                </div>
+                <div class= "col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label class= "text-uppercase bold">Amount<span class= "mandatory-asterisk">*</span></label>
+                </div>
+                <div class= "col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                     <input type= "number" [(ngModel)]= "modalData.data.amount" placeholder= "&#8364;" />
+                </div>
+            </div>
+            <div class= "row modal-rows">
+                <div class= "col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label class= "text-uppercase bold">Date: </label>
+                </div>
+                <div class= "col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <input type= "date" [(ngModel)]= "modalData.data.date" />
+                </div>
+                <div class= "col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <label class= "text-uppercase bold">Description: </label>
+                </div>
+                <div class= "col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <input type= "text" [(ngModel)]= "modalData.data.description" placeholder= "Enter entry description"/>
+                </div>
+            </div>
+            <div class= "row modal-rows">
+                <span class= "error" *ngIf= "error">{{error}}</span>
+                <span class= "float-right">
+                    <span class= "mandatory-asterisk">*</span> marked fields are mandatory
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class= "modal-button-section">
+        <button type="button" class="btn btn-success text-uppercase" (click)="addExpense()">
+            <i class="material-icons">add_circle</i>
+            {{modalData.mode === 'add' ? 'Add' : modalData.mode === 'edit' ? 'Update' : 'Delete'}} Entry
+        </button>
+    </div>
+</div>

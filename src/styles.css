@@ -1,0 +1,159 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: adhapsrg-webfont;
+    background-color: #ddd;
+}
+
+.bold {
+    font-family: AdihausBold;
+}
+
+.theme-font-color {
+    color: #337ab7;
+}
+
+@font-face {
+    font-family: AdihausBold;
+    src: url('./font/adihaus-bold.otf')
+}
+
+@font-face {
+    font-family: 'adhapsrg-webfont';
+    src: url('./font/adhapsrg-webfont.ttf');
+}
+
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(./font/material-icons.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.action-button {
+    font-size: 30px;
+}
+
+input {
+    max-width: 100%;
+}
+
+.vertical-middle {
+    vertical-align: middle;
+}
+
+.font-size-18 {
+    font-size: 18px;
+}
+
+.push-down-15 {
+    margin-bottom: 15px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.display-none {
+    display: none;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.display-block {
+    display: block;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+/*Custom Modal Classes Start*/
+.modal-header,
+.modal-body {
+    background-color: #f5f5f5;
+}
+
+.modal-backdrop.show {
+    opacity: 0.5;
+}
+
+.fade.show.modal {
+    opacity: 1;
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0, 50%);
+    transform: translate(0, 50%);
+    transition: all 0.3s ease-in;
+}
+
+.modal-button-section {
+    text-align: center;
+}
+
+.modal-body {
+    padding: 20px;
+}
+/*Custom Modal Classes End*/
+
+.flashing {
+    animation-name: flashing-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes flashing-animation {
+    0% {opacity: 1}
+    25% {opacity: 0.5}
+    50% {opacity: 0}
+    75% {opacity: 0.5}
+    100% {opacity: 1}
+}
+
+.page-action-row {
+    position: fixed;
+    width: 99%;
+    background-color: #f5f5f5;
+    opacity: 1;
+    z-index: 2;
+    padding-top: 15px;
+}
+
+.mandatory-asterisk {
+    color: crimson;
+    font-weight: bold;
+}
+
+.error {
+    color: crimson;
+}

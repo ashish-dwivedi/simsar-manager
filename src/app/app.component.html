@@ -1,0 +1,40 @@
+<div class=" text-center">
+    <img class= "logo-img" [src]= "titleImage" />
+    <div class= "title-wrapper bold">
+        <h2>SIMSAR MANAGER</h2>
+        <h4>@Dwivedi's</h4>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class= "panel-heading main">
+        <ul class="nav navbar-nav bold text-uppercase">
+            <li>
+                <a [routerLink]= "['/home']">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a [routerLink]= "['/expenses']">
+                    <i class="material-icons">account_balance_wallet</i>
+                    Manage Expenses
+                </a>
+            </li>
+            <li>
+                <a [routerLink]= "['/shopping']">
+                    <i class="material-icons">featured_play_list</i>
+                    Shopping List
+                </a>
+            </li>
+            <li>
+                <a [routerLink]= "['/notification']">
+                    <i class="material-icons">notifications</i>
+                    Register for notification
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-body main">
+        <router-outlet></router-outlet>
+    </div>
+</div>

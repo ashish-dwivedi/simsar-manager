@@ -1,0 +1,40 @@
+<div class= "row">
+    <div class= "col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h2 class= "text-center">Shopping Lists</h2>
+    </div>
+</div>
+<div class= "row">
+    <div class= "col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class= "list-container">
+            <div class= "panel panel-default shopping-card add" (click)= "addNewList()" sm-tooltip tooltip= "Click to edit">
+                <div class= "add-list-cont text-center">
+                    <i class="material-icons note_add">note_add</i>
+                    <span class= "bold font-size-18 add-list-text">Add List</span>
+                    <div [ngClass]= "{'first-line' : first}" *ngFor= "let row of staticRows; let first = first">
+                        <span class= "shopping-circle"></span>
+                        <span class= "shopping-line"></span>
+                    </div>
+                </div>
+            </div>
+            <div [id]= "listItem.id" class= "panel panel-default shopping-card {{firstList? 'first' : ''}}" *ngFor= "let listItem of shoppingList; let firstList = first; let index= index">
+                <div class= "card-overlay bold" [ngClass]= "{'edit': listItem.clicked}">
+                    <div class= "overlay-content">
+                        <span class= "text-uppercase">{{listItem.title}}</span>
+                        <i class="material-icons" (click)= "openForEdit(listItem)">mode_edit</i>
+                        <i class="material-icons" (click)= "removeList(listItem, index)">delete</i>
+                    </div>
+                </div>
+                <div class= "list-header">
+                    <input class= "title-input" [(ngModel)]= "listItem.title">
+                </div>
+                <div class= "item-list">
+                    <input placeholder= "Item description" class= "list-input" *ngFor= "let item of listItem.list; let first= first; let itemIndex = index" [ngClass]= "{'first': first}" [(ngModel)]= "listItem.list[itemIndex].name">
+                </div>
+                <div class= "list-footer">
+                    <i class="material-icons" (click)= "addNewItem(listItem)">add_circle</i>
+                    <i class="material-icons float-right" (click)= "updateList(listItem)">save</i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

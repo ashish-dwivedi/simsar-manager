@@ -1,0 +1,19 @@
+<div class= "modal-header">
+    <h3 class= "text-uppercase modal-title bold inline-block">Delete</h3>
+    <i class="material-icons float-right" (click)= "closeModalFailure()">clear</i>
+</div>
+<div class= "modal-body">
+    <div class= "bold">{{modalData.message}}</div>
+</div>
+<div class= "modal-footer">
+    <div class= "modal-button-section">
+        <button class= "btn btn-success text-uppercase" (click)= "closeModalSuccess()">
+            <i class="material-icons">delete_sweep</i>
+            Delete
+        </button>
+        <button class= "btn btn-danger text-uppercase" (click)= "closeModalFailure()">
+            <i class="material-icons">cancel</i>
+            Cancel
+        </button>
+    </div>
+</div>
